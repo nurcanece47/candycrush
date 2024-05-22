@@ -34,12 +34,12 @@ function startGame() {
             tile.src = "./images/" + randomCandy() + ".png";
 
             //DRAG FUNCTIONALITY
-            tile.addEventListener("dragstart", dragStart); //click on a candy, initialize drag process
-            tile.addEventListener("dragover", dragOver);  //clicking on candy, moving mouse to drag the candy
-            tile.addEventListener("dragenter", dragEnter); //dragging candy onto another candy
-            tile.addEventListener("dragleave", dragLeave); //leave candy over another candy
-            tile.addEventListener("drop", dragDrop); //dropping a candy over another candy
-            tile.addEventListener("dragend", dragEnd); //after drag process completed, we swap candies
+            tile.addEventListener("dragstart", dragStart); //bir şekere tıklayın, sürükleme işlemini başlatın
+            tile.addEventListener("dragover", dragOver); //şekere tıklıyoruz, şekeri sürüklemek için fareyi hareket ettiriyoruz
+            tile.addEventListener("dragenter", dragEnter); //şekeri başka bir şekerin üzerine sürüklemek
+            tile.addEventListener("dragleave", dragLeave); //şekeri başka bir şekerin üzerine bırak
+            tile.addEventListener("drop", dragDrop);//bir şekeri başka bir şekerin üzerine bırakıyorum
+            tile.addEventListener("dragend", dragEnd); //sürükleme işlemi tamamlandıktan sonra şekerleri değiştiriyoruz
 
             document.getElementById("board").append(tile);
             row.push(tile);
@@ -51,7 +51,7 @@ function startGame() {
 }
 
 function dragStart() {
-    //this refers to tile that was clicked on for dragging
+    //bu sürüklenmek için tıklanan döşemeyi ifade eder
     currTile = this;
 }
 
@@ -68,7 +68,7 @@ function dragLeave() {
 }
 
 function dragDrop() {
-    //this refers to the target tile that was dropped on
+    //bu, üzerine bırakılan hedef döşemeyi ifade eder
     otherTile = this;
 }
 
@@ -111,15 +111,16 @@ function dragEnd() {
 }
 
 function crushCandy() {
-    //crushFive();
-    //crushFour();
+    //crushFive();beşiez
+    //crushFour();dördüez
     crushThree();
     document.getElementById("score").innerText = score;
 
 }
 
 function crushThree() {
-    //check rows
+
+    //satırları kontrol et   
     for (let r = 0; r < rows; r++) {
         for (let c = 0; c < columns-2; c++) {
             let candy1 = board[r][c];
@@ -134,7 +135,7 @@ function crushThree() {
         }
     }
 
-    //check columns
+    //sütunları kontrol et
     for (let c = 0; c < columns; c++) {
         for (let r = 0; r < rows-2; r++) {
             let candy1 = board[r][c];
@@ -151,7 +152,7 @@ function crushThree() {
 }
 
 function checkValid() {
-    //check rows
+   //satırları kontrol et
     for (let r = 0; r < rows; r++) {
         for (let c = 0; c < columns-2; c++) {
             let candy1 = board[r][c];
@@ -163,7 +164,7 @@ function checkValid() {
         }
     }
 
-    //check columns
+    //sütunları kontrol et
     for (let c = 0; c < columns; c++) {
         for (let r = 0; r < rows-2; r++) {
             let candy1 = board[r][c];
