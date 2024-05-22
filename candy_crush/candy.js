@@ -24,7 +24,7 @@ function randomCandy() {
     return candies[Math.floor(Math.random() * candies.length)]; //0 - 5.99
 }
 
-function startGame() {
+function startGame() { //çalıştırma fonksiyonu
     for (let r = 0; r < rows; r++) {
         let row = [];
         for (let c = 0; c < columns; c++) {
@@ -33,7 +33,7 @@ function startGame() {
             tile.id = r.toString() + "-" + c.toString();
             tile.src = "./images/" + randomCandy() + ".png";
 
-            //DRAG FUNCTIONALITY
+            //SÜRÜKLE İŞLEVİ
             tile.addEventListener("dragstart", dragStart); //bir şekere tıklayın, sürükleme işlemini başlatın
             tile.addEventListener("dragover", dragOver); //şekere tıklıyoruz, şekeri sürüklemek için fareyi hareket ettiriyoruz
             tile.addEventListener("dragenter", dragEnter); //şekeri başka bir şekerin üzerine sürüklemek
